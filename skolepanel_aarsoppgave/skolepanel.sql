@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2024 at 11:47 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: May 15, 2024 at 09:23 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,9 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `skolepanel`
 --
-
-CREATE DATABASE skolepanel;
-USE skolepanel;
 
 -- --------------------------------------------------------
 
@@ -43,7 +40,13 @@ CREATE TABLE `annotations` (
 --
 
 INSERT INTO `annotations` (`annotation_id`, `student_id`, `subject_type`, `annotation_text`, `annotation_date`) VALUES
-(218, 1, 'Norsk', 'Kom forsinket', '2023-11-30');
+(218, 1, 'Norsk', 'Kom forsinket', '2023-11-30'),
+(223, 61, 'Engelsk', 'Forstyrret medelev i undervisningen', '2024-05-07'),
+(224, 63, 'Engelsk', 'kio', '2024-05-07'),
+(225, 63, 'Engelsk', 'test', '2024-05-07'),
+(226, 66, 'Mattematikk', 'kom forsinka', '07.03.2024'),
+(227, 241, 'Engelsk', 'egentlig spiller ingen rolle egentlig burde ikek være her egentlig for god bro burde egentlig begynne å jobbe', '2024-05-01'),
+(228, 242, 'Mattematikk', 'get back to work', '13.05.2024');
 
 -- --------------------------------------------------------
 
@@ -69,7 +72,8 @@ INSERT INTO `classes` (`id`, `class_name`) VALUES
 (6, '9A'),
 (7, '9B'),
 (8, '9C'),
-(9, '9D');
+(9, '9D'),
+(10, '2IMI');
 
 -- --------------------------------------------------------
 
@@ -122,7 +126,7 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `class`, `absence`, `co
 (63, 'Frida', 'Berge', '9C', 'Ingen', ''),
 (64, 'Oscar', 'Svendsen', '10C', 'Til stede', ''),
 (65, 'Johannes', 'Moe', '10D', 'Ingen', ''),
-(66, 'Olav', 'Bøe', '10A', 'Ingen', ''),
+(66, 'Olav', 'Bøe', '10A', 'Til stede', ''),
 (67, 'Nora', 'Hovde', '10B', 'Til stede', ''),
 (68, 'Silje', 'Birkeland', '9C', 'Til stede', ''),
 (69, 'Alexander', 'Brekke', '9B', 'Til stede', ''),
@@ -139,7 +143,7 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `class`, `absence`, `co
 (80, 'Hilde', 'Knutsen', '9C', 'Til stede', ''),
 (81, 'Håkon', 'Sætre', '9B', 'Dokumentert', 'Aliquam augue tellus, sodales luctus elementum convallis, sagittis malesuada dui.'),
 (82, 'Sara', 'Svendsen', '10E', 'Til stede', ''),
-(83, 'Ole', 'Berge', '10A', 'Til stede', ''),
+(83, 'Ole', 'Berge', '10A', 'Dokumentert', 'Legeærklering'),
 (84, 'Alexander', 'Nilsen', '10B', 'Til stede', ''),
 (85, 'Sander', 'Haugen', '10A', 'Til stede', ''),
 (86, 'Magnus', 'Berge', '10E', 'Til stede', ''),
@@ -259,7 +263,7 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `class`, `absence`, `co
 (200, 'Hilde', 'Solheim', '10C', 'Til stede', ''),
 (201, 'Nora', 'Bøe', '10B', 'Dokumentert', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ipsum est, fermentum ut fermentum vitae, semper vitae justo. Maecenas vulputate tellus in mauris volutpat, in dictum odio vestibulum. Cras'),
 (202, 'Jon', 'Fredriksen', '9C', 'Udokumentert', 'Aliquam augue tellus, sodales luctus elementum convallis, sagittis malesuada dui.'),
-(203, 'Ingeborg', 'Borge', '10A', 'Til stede', ''),
+(203, 'Ingeborg', 'Borge', '10A', 'Ingen', ''),
 (204, 'Per', 'Moen', '10E', 'Ingen', ''),
 (205, 'Johannes', 'Helle', '10D', 'Ingen', ''),
 (206, 'Alexander', 'Berge', '10B', 'Udokumentert', 'In nibh sapien, congue id aliquam at, egestas in augue. Sed sit amet nulla felis. Cras semper turpis tempor mauris finibus, ac imperdiet elit condimentum.'),
@@ -292,7 +296,13 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `class`, `absence`, `co
 (233, 'Filip', 'Hovde', '9D', 'Udokumentert', 'Aliquam augue tellus, sodales luctus elementum convallis, sagittis malesuada dui.'),
 (234, 'Arne', 'Hagen', '10A', 'Til stede', ''),
 (235, 'Emil', 'Bøe', '10C', 'Udokumentert', 'Ut eleifend et ex eu commodo. Cras scelerisque porttitor nibh maximus rutrum. Vestibulum rhoncus nunc porttitor pretium vestibulum. In consequat sem vitae ante molestie scelerisque.'),
-(236, 'Øystein', 'Pedersen', '9A', 'Til stede', '');
+(236, 'Øystein', 'Pedersen', '9A', 'Til stede', ''),
+(239, 'Henrik', 'Engelsen Høyas', '2IMI', 'Til stede', ''),
+(240, 'Vy', 'Benedikte hVorlav??', '2IMI', 'Til stede', ''),
+(241, 'Niklas', 'Høstland Dietzel', '2IMI', 'Til stede', ''),
+(242, 'Adrian', 'Limpiado Paul Balunan', '2IMI', 'Til stede', ''),
+(243, 'Ulrik', 'Bolling Nesheim', '2IMI', 'Til stede', ''),
+(244, 'Jørgen', 'Andreas Bratland Bull', '2IMI', 'Udokumentert', '');
 
 -- --------------------------------------------------------
 
@@ -305,7 +315,7 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `access` varchar(200) NOT NULL
+  `access` varchar(200) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -363,13 +373,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `annotations`
 --
 ALTER TABLE `annotations`
-  MODIFY `annotation_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `annotation_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -381,13 +391,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
